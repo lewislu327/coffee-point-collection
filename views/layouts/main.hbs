@@ -7,7 +7,22 @@
   <title>商店集點卡</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
+<header>
+  <nav class="navbar navbar-dark bg-primary justify-content-between">
+    <a class="navbar-brand" href="/">
+      {{#if isAuthenticated}} {{user.name}}'s {{/if}}餐廳集點卡
+    </a>
+    {{#if isAuthenticated}}
+      <a class="btn btn-outline-light" href="/users/logout">Logout</a>
+    {{else}}
+      <a class="btn btn-outline-light" href="/users/login">Login</a>
+    {{/if}}
+  </nav>
+</header>
 <body>
   {{{ body }}}
   
