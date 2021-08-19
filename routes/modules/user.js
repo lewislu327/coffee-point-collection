@@ -14,14 +14,16 @@ router.get('/login', (req, res) => {
 
 router.get('/logout', (req, res) => {
   req.logout()
-  res.redirect('/login')
+  req.flash('success_msg', '已成功登出！')
+  res.redirect('/users/login')
 })
 
 router.post(
   '/login',
   passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/login'
+    failureRedirect: '/users/login',
+    failureFlash: true
   })
 )
 
