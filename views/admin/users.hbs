@@ -1,0 +1,47 @@
+<div class="admin-wrapper d-flex flex-column justify-content-center" style="background-color:white">
+<h2 class="mx-3">會員清單</h2>
+<div class="addUserBtn text-start mx-3">
+<a href='/admin/users/create'>
+  <button type="button" class="btn btn-primary">New Member</button>
+</a>
+</div>
+<br />
+
+<div class="table">
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col" width="15%">Name</th>
+      <th scope="col" width="30%">Email</th>
+      <th scope="col" width="25%">CREATED</th>
+      <th scope="col" width="30%">＃</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each users}}
+    <tr>
+      <td scope="row">{{this.name}}</td>
+      <td>{{this.email}}</td>
+      <td>{{this.createdAt}}</td>
+      <td><button type="button" class="btn btn-link">
+        <a href="/admin/users/{{this._id}}">
+          Show
+        </a>
+      </button>
+      <button type="button" class="btn btn-link">
+        <a href="/admin/users/{{this._id}}/edit">
+          Edit
+        </a>
+      </button>
+      <form action="/admin/users/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-link">Delete</button>
+      </form></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+
+
+</div>

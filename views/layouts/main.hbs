@@ -13,9 +13,13 @@
 </head>
 <header>
   <nav class="navbar navbar-dark bg-primary justify-content-between">
-    <a class="navbar-brand mx-3" href="/">
+    <div class="left-part"><a class="navbar-brand mx-3" href="/">
       {{#if isAuthenticated}} {{user.name}}的 {{/if}}咖啡店集點卡
     </a>
+    {{#if user.isAdmin}}
+      <a class="navbar-brand" href="/admin" style="color: white;">Admin 後台</a>
+    {{/if}}</div>
+   
     {{#if isAuthenticated}}
       <a class="btn btn-outline-light  mx-3" href="/users/logout">Logout</a>
     {{else}}
