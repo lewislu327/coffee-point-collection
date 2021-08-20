@@ -8,7 +8,7 @@ h1 {
 }
 
 #card {
-  width: 350px;
+  width: 500px;
   overflow: auto;
   margin: 40px auto;
   background: #666;
@@ -35,7 +35,7 @@ h1 {
 #stampBtn:hover {
   cursor: pointer;
 }
-#stampBtn {
+#addBtn {
   display: block;
   min-width: 150px;
   border: 0;
@@ -46,8 +46,38 @@ h1 {
   text-decoration: none;
 }
 
-.btn {
-  color: rgb(255, 255, 255);
+#addBtn h3 {
+  color: green;
+}
+
+#reduceBtn {
+  display: block;
+  min-width: 150px;
+  border: 0;
+  background: #444;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+#reduceBtn h3 {
+  color: red;
+}
+
+#zeroBtn {
+  display: block;
+  min-width: 150px;
+  border: 0;
+  background: #444;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+#zeroBtn h3 {
+  color: white;
 }
 
 .footer {

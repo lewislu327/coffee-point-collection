@@ -4,16 +4,7 @@
       <h1>咖啡店集點卡</h1>
     </div>
     <div class="container">
-      {{#if success_messages}}
-        <div class="alert alert-success" role="alert" style="margin: 30px 0 ;">
-          {{success_messages}}
-        </div>
-      {{/if}}
-      {{#if error_messages}}
-        <div class="alert alert-danger" role="alert" style="margin: 30px 0 ;">
-          {{error_messages}}
-        </div>
-      {{/if}}
+      {{> message}}
     
       {{{body}}}
     </div>
@@ -27,10 +18,21 @@
       <li class="" id="6">{{#gte number 7}}<i class="fas fa-coffee"></i>{{/gte}}</li>
       <li class="" id="7">{{#gte number 8}}<i class="fas fa-coffee"></i>{{/gte}}</li>
       <li class="" id="8">{{#gte number 9}}<i class="fas fa-coffee"></i>{{/gte}}</li>
+      <li class="" id="8">{{#gte number 10}}<i class="fas fa-coffee"></i>{{/gte}}</li>
     </ul>
-    <div class="footer m-auto" >
-      <form id="stampBtn" action="/points" method="POST">
+    <div class="footer m-auto d-flex" >
+      <form id="addBtn" action="/addpoints" method="POST" class="mx-2">
         <button type="submit" class="btn"><h3>給點</h3></button>
+      </form>
+      <form id="reduceBtn" action="/reducepoints?_method=DELETE" method="POST" class="mx-2">
+        <button type="submit" class="btn">
+          <h3>扣點</h3>
+        </button>
+      </form>
+      <form id="zeroBtn" action="/zeropoints?_method=PUT" method="POST" class="mx-2">
+        <button type="submit" class="btn">
+          <h3>歸零</h3>
+        </button>
       </form>
     </div>
   
