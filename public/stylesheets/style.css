@@ -35,7 +35,8 @@ h1 {
 #stampBtn:hover {
   cursor: pointer;
 }
-#addBtn {
+
+#userBtn {
   display: block;
   min-width: 150px;
   border: 0;
@@ -46,37 +47,15 @@ h1 {
   text-decoration: none;
 }
 
-#addBtn h3 {
+#addH3 {
   color: green;
 }
 
-#reduceBtn {
-  display: block;
-  min-width: 150px;
-  border: 0;
-  background: #444;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-
-#reduceBtn h3 {
+#reduceH3 {
   color: red;
 }
 
-#zeroBtn {
-  display: block;
-  min-width: 150px;
-  border: 0;
-  background: #444;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-
-#zeroBtn h3 {
+#zeroH3 {
   color: white;
 }
 

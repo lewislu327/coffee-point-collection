@@ -20,20 +20,32 @@
       <li class="" id="8">{{#gte number 9}}<i class="fas fa-coffee"></i>{{/gte}}</li>
       <li class="" id="8">{{#gte number 10}}<i class="fas fa-coffee"></i>{{/gte}}</li>
     </ul>
+    {{#if user.isAdmin}}
     <div class="footer m-auto d-flex" >
-      <form id="addBtn" action="/addpoints" method="POST" class="mx-2">
-        <button type="submit" class="btn"><h3>給點</h3></button>
+
+      <form id="userBtn" action="/addpoints" method="POST" class="mx-2">
+        <button type="submit" class="btn"><h3 id="addH3">給點</h3></button>
       </form>
-      <form id="reduceBtn" action="/reducepoints?_method=DELETE" method="POST" class="mx-2">
+      <form id="userBtn" action="/reducepoints?_method=DELETE" method="POST" class="mx-2">
         <button type="submit" class="btn">
-          <h3>扣點</h3>
+          <h3 id="reduceH3">扣點</h3>
         </button>
       </form>
-      <form id="zeroBtn" action="/zeropoints?_method=PUT" method="POST" class="mx-2">
+      <form id="userBtn" action="/zeropoints?_method=PUT" method="POST" class="mx-2">
         <button type="submit" class="btn">
-          <h3>歸零</h3>
+          <h3 id="zeroH3">歸零</h3>
         </button>
       </form>
     </div>
-  
+    {{/if}}
+
+    {{#unless user.isAdmin}}
+    <div class="footer m-auto">
+      <form id="userBtn" action="/" method="GET" class="mx-2">
+        <button type="submit" class="btn">
+          <h3 id="zeroH3">Refresh</h3>
+        </button>
+      </form>
+    </div>
+    {{/unless}}
   </div>

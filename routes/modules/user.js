@@ -69,7 +69,8 @@ router.post('/register', (req, res) => {
           User.create({
             name,
             email,
-            password: hash
+            password: hash,
+            isAdmin: 0
           })
         )
         .then(() => res.redirect('/'))
