@@ -1,43 +1,24 @@
 
   <div class="card d-flex flex-column " id="card">
     <div class="header mt-3">
-      <h1>咖啡店集點卡</h1>
+      <h1>會員編號#{{user.id}}</h1>
     </div>
     <div class="container">
       {{> message}}
     </div>
     <ul id="pointCard">
-      <li class="" id="0">{{#gte number 1}}<i class="fas fa-coffee"></i>{{/gte}}</li>
-      <li class="" id="1">{{#gte number 2}}<i class="fas fa-coffee"></i>{{/gte}}</li>
-      <li class="" id="2">{{#gte number 3}}<i class="fas fa-coffee"></i>{{/gte}}</li>
-      <li class="" id="3">{{#gte number 4}}<i class="fas fa-coffee"></i>{{/gte}}</li>
-      <li class="" id="4">{{#gte number 5}}<i class="fas fa-coffee"></i>{{/gte}}</li>
-      <li class="" id="5">{{#gte number 6}}<i class="fas fa-coffee"></i>{{/gte}}</li>
-      <li class="" id="6">{{#gte number 7}}<i class="fas fa-coffee"></i>{{/gte}}</li>
-      <li class="" id="7">{{#gte number 8}}<i class="fas fa-coffee"></i>{{/gte}}</li>
-      <li class="" id="8">{{#gte number 9}}<i class="fas fa-coffee"></i>{{/gte}}</li>
-      <li class="" id="8">{{#gte number 10}}<i class="fas fa-coffee"></i>{{/gte}}</li>
+      <li class="" id="0">{{#gte points 1}}<i class="fas fa-coffee"></i>{{/gte}}</li>
+      <li class="" id="1">{{#gte points 2}}<i class="fas fa-coffee"></i>{{/gte}}</li>
+      <li class="" id="2">{{#gte points 3}}<i class="fas fa-coffee"></i>{{/gte}}</li>
+      <li class="" id="3">{{#gte points 4}}<i class="fas fa-coffee"></i>{{/gte}}</li>
+      <li class="" id="4">{{#gte points 5}}<i class="fas fa-coffee"></i>{{/gte}}</li>
+      <li class="" id="5">{{#gte points 6}}<i class="fas fa-coffee"></i>{{/gte}}</li>
+      <li class="" id="6">{{#gte points 7}}<i class="fas fa-coffee"></i>{{/gte}}</li>
+      <li class="" id="7">{{#gte points 8}}<i class="fas fa-coffee"></i>{{/gte}}</li>
+      <li class="" id="8">{{#gte points 9}}<i class="fas fa-coffee"></i>{{/gte}}</li>
+      <li class="" id="8">{{#gte points 10}}<i class="fas fa-coffee"></i>{{/gte}}</li>
     </ul>
-    {{#if user.isAdmin}}
-    <div class="footer m-auto d-flex" >
 
-      <form id="userBtn" action="/addpoints" method="POST" class="mx-2">
-        <button type="submit" class="btn"><h3 id="addH3">給點</h3></button>
-      </form>
-      <form id="userBtn" action="/reducepoints?_method=DELETE" method="POST" class="mx-2">
-        <button type="submit" class="btn">
-          <h3 id="reduceH3">扣點</h3>
-        </button>
-      </form>
-      <form id="userBtn" action="/zeropoints?_method=PUT" method="POST" class="mx-2">
-        <button type="submit" class="btn">
-          <h3 id="zeroH3">歸零</h3>
-        </button>
-      </form>
-    </div>
-    {{/if}}
-
-    {{#unless user.isAdmin}}
     <div class="footer m-auto">
       <form id="userBtn" action="/" method="GET" class="mx-2">
         <button type="submit" class="btn">
@@ -45,5 +26,4 @@
         </button>
       </form>
     </div>
-    {{/unless}}
   </div>

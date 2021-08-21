@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+const AutoIncrement = require('mongoose-sequence')(mongoose)
+
 const Schema = mongoose.Schema
 const userSchema = new Schema({
   name: {
@@ -13,6 +15,10 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  points: {
+    type: Number,
+    default: 0
+  },
   createdAt: {
     type: Date,
     default: Date.now
@@ -21,5 +27,5 @@ const userSchema = new Schema({
     type: Boolean
   }
 })
-
+userSchema.plugin(AutoIncrement, { inc_field: 'id' })
 module.exports = mongoose.model('User', userSchema)

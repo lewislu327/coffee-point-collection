@@ -1,0 +1,87 @@
+<div class="admin-wrapper d-flex flex-column justify-content-center" style="background-color:white">
+<h2 class="mx-3">會員清單</h2>
+<div class="left-part d-flex">
+<form class="d-flex" action="/admin/search">
+  <input class="form-control me-2" type="text" name="keyword" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+<div class="addUserBtn text-start mx-3">
+  <a href='/admin/users/create'>
+    <button type="button" class="btn btn-primary">New Member</button>
+  </a>
+</div>
+</div>
+
+<br />
+{{> message}}
+<div class="table">
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col" width="5%">Id</th>
+      <th scope="col" width="10%">Name</th>
+      <th scope="col" width="20%">Email</th>
+      <th scope="col" width="25%">CREATED</th>
+      <th scope="col" width="10%">Points</th>
+      <th scope="col" width="35%">＃</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each users}}
+    <tr>
+      <td scope="row">{{this.id}}</td>
+      <td>{{this.name}}</td>
+      <td>{{this.email}}</td>
+      <td>{{this.createdAt}}</td>
+      <td>{{this.points}}</td>
+      <td>
+      <form action="/admin/{{this._id}}/addpoints" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-link">給點</button>
+      </form>
+      <form action="/admin/{{this._id}}/reducepoints?_method=DELETE" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-link">扣點</button>
+      </form>
+      <form action="/admin/{{this._id}}/zeropoints?_method=PUT" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-link">歸零</button>
+      </form>
+
+      {{!-- <form action="/admin/users/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-link">Delete</button>
+      </form></td> --}}
+    </tr>
+    {{/each}}
+  </tbody>
+    {{#unless users}}
+      <tbody>
+        <tr>
+          <td scope="row">{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.createdAt}}</td>
+          <td>{{user.points}}</td>
+          <td>
+            <form action="/admin/{{user._id}}/addpoints" method="POST" style="display: inline;">
+              <button type="submit" class="btn btn-link">給點</button>
+            </form>
+            <form action="/admin/{{user._id}}/reducepoints?_method=DELETE" method="POST" style="display: inline;">
+              <button type="submit" class="btn btn-link">扣點</button>
+            </form>
+            <form action="/admin/{{user._id}}/zeropoints?_method=PUT" method="POST" style="display: inline;">
+              <button type="submit" class="btn btn-link">歸零</button>
+            </form>
+    
+            {{!-- <form action="/admin/users/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
+            <button type="submit" class="btn btn-link">Delete</button>
+          </form></td> --}}
+        </tr>
+      </tbody>
+    {{/unless}}
+</table>
+
+
+
+</div>
+
+
+</div>
