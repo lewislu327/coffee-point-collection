@@ -14,8 +14,8 @@ module.exports = {
       if (req.user.isAdmin) {
         return next()
       }
-      return res.redirect('/users/login')
+      return res.redirect('/')
     }
-    res.redirect('users/login')
+    res.redirect('/')
   }
 }

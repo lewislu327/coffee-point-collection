@@ -41,7 +41,6 @@ router.delete('/:id/reducepoints', async (req, res) => {
 router.put('/:id/zeropoints', async (req, res) => {
   try {
     const user = await User.findOne({ _id: req.params.id }).lean()
-    console.log(user)
     if (user.points === 0) {
       req.flash('warning_msg', '點數已為0點')
       return res.redirect('back')
@@ -57,9 +56,19 @@ router.put('/:id/zeropoints', async (req, res) => {
 
 router.get('/search', async (req, res) => {
   try {
-    const id = req.query.keyword
+    const id = Number(req.query.keyword.trim())
+    if (!id) {
+      req.flash('warning_msg', '請輸入正確id')
+      return res.redirect('/admin')
+    }
     const user = await User.findOne({ id }).lean()
-    user.createdAt = moment(user.createdAt).format('LLL')
+
+    if (!user || typeof user === 'null') {
+      req.flash('warning_msg', '請輸入正確id')
+      return res.redirect('/admin')
+    } else {
+      user.createdAt = moment(user.createdAt).format('LLL')
+    }
 
     return res.render('admin/members', { user })
   } catch (error) {

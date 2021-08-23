@@ -1,32 +1,36 @@
 body {
-  background: #212121;
-  color: #666;
+  background: #f4f1de;
+  color: rgb(10, 10, 10);
 }
 .card h1 {
   text-align: center;
-  color: #fff;
+  color: dimgrey;
 }
 
 #card {
-  width: 500px;
+  max-width: 500px;
   overflow: auto;
   margin: 40px auto;
-  background: #666;
+  background: #f0ecd3;
   padding-bottom: 40px;
-  border-radius: 10px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 #message {
   background: #333;
   color: #fff;
 }
 #pointCard li {
+  color: #0b525b;
   float: left;
   margin: 10px;
   height: 70px;
   width: 70px;
   font-size: 50px;
-  background: #333;
-  color: #ccc;
+  background: rgb(220, 220, 220);
   list-style: none;
   text-align: center;
   border-radius: 5px;
@@ -40,23 +44,15 @@ body {
   display: block;
   min-width: 150px;
   border: 0;
-  background: #444;
-  color: #fff;
+  background: rgb(181, 181, 181);
+  color: floralwhite;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 15px;
   text-decoration: none;
 }
 
-#addH3 {
-  color: green;
-}
-
-#reduceH3 {
-  color: red;
-}
-
 #zeroH3 {
-  color: white;
+  color: floralwhite;
 }
 
 .footer {
@@ -66,7 +62,8 @@ body {
 }
 
 .admin-wrapper {
-  width: 1000px;
+  width: 100%;
+  max-width: 800px;
   border-radius: 10px;
   margin: 40px auto;
   overflow: auto;
@@ -102,4 +99,18 @@ table td {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 576px) {
+  #card {
+    max-width: 250px;
+    overflow: auto;
+    margin: 40px auto;
+    background: #666;
+    padding-bottom: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
