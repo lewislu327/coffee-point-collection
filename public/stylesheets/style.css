@@ -96,7 +96,7 @@ table th {
   text-transform: uppercase;
 }
 table td {
-  white-space: nowrap;
+  word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
 }

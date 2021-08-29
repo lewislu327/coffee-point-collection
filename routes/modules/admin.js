@@ -70,7 +70,7 @@ router.get('/search', async (req, res) => {
       user.createdAt = moment(user.createdAt).format('LLL')
     }
 
-    return res.render('admin/members', { user })
+    return res.render('admin/members', { user, id })
   } catch (error) {
     console.error(error)
   }
